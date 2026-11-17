@@ -23,12 +23,12 @@ class _mainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(24),
               child: _widgetOptions.elementAt(_selectedIndex),
               decoration: BoxDecoration(
                 border: Border(
@@ -62,6 +62,7 @@ class _mainScreenState extends State<MainScreen> {
             label: 'Profile',
           ),
         ],
+        backgroundColor: Colors.white,
         currentIndex: _selectedIndex,
         selectedItemColor: HelodermaColors.darkPink,
         unselectedItemColor: HelodermaColors.darkBlue,
