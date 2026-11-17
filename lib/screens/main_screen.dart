@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:heloderma/colors.dart' as HelodermaColors;
 import 'package:heloderma/screens/homepage.dart';
+import 'package:heloderma/screens/folderspage.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,7 +15,7 @@ class _mainScreenState extends State<MainScreen> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
-    Text('Folders'),
+    const FoldersPage(),
     Text('Treatments'),
     Text('Calendar'),
     Text('Profile'),

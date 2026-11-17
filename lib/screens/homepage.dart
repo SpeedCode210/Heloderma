@@ -125,19 +125,41 @@ class _homePageState extends State<HomePage> {
         ),
         child: Padding(
           padding: EdgeInsets.all(16),
-          child: Row(children: [
-	    SizedBox(width: 12),
-            Column(children: [
-		Text(DateFormat('d').format(appointment.time), style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800, color: HelodermaColors.darkBlue)), 
-		Text(DateFormat('MMM').format(appointment.time))
-	    ]),
-	    SizedBox(width: 28),
-	    Expanded(child:
-	    Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
-                  Text(appointment.name + ' - ' + appointment.specialty, style: Styles.H3),
-                  Text(DateFormat('jm').format(appointment.time) + ' - ' + appointment.location),
-	    ]))
-	  ]),
+          child: Row(
+            children: [
+              SizedBox(width: 12),
+              Column(
+                children: [
+                  Text(
+                    DateFormat('d').format(appointment.time),
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w800,
+                      color: HelodermaColors.darkBlue,
+                    ),
+                  ),
+                  Text(DateFormat('MMM').format(appointment.time)),
+                ],
+              ),
+              SizedBox(width: 28),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      appointment.name + ' - ' + appointment.specialty,
+                      style: Styles.H3,
+                    ),
+                    Text(
+                      DateFormat('jm').format(appointment.time) +
+                          ' - ' +
+                          appointment.location,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -145,91 +167,96 @@ class _homePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(child: Padding(padding: EdgeInsets.all(24),child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Row(
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.all(24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Hello $username', style: Styles.H1),
-                  Text(DateFormat('EEEE, MMMM dd').format(now)),
-                ],
-              ),
-            ),
-            Image(image: AssetImage('assets/heloderma.png'), width: 80),
-          ],
-        ),
-        SizedBox(height: 24),
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(width: 1, color: Colors.grey[300]!),
-          ),
-          child: Padding(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+            Row(
               children: [
-                Text(
-                  'Next Dose : 1:00 PM',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(color: Colors.grey[600]!),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Hello $username', style: Styles.H1),
+                      Text(DateFormat('EEEE, MMMM dd').format(now)),
+                    ],
+                  ),
                 ),
-                SizedBox(height: 8),
-                Row(
+                Image(image: AssetImage('assets/heloderma.png'), width: 80),
+              ],
+            ),
+            SizedBox(height: 24),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(width: 1, color: Colors.grey[300]!),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: HelodermaColors.bgPink,
-                        borderRadius: BorderRadius.circular(1000),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(12),
-                        child: Icon(
-                          Icons.medication_liquid_sharp,
-                          color: HelodermaColors.darkPink,
-                        ),
-                      ),
+                    Text(
+                      'Next Dose : 1:00 PM',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(color: Colors.grey[600]!),
                     ),
-                    SizedBox(width: 12),
-                    Column(
+                    SizedBox(height: 8),
+                    Row(
                       children: [
-                        Text('Amlodipine', style: Styles.H2),
-                        Text(
-                          '5 mg - 1 Tablet',
-                          style: TextStyle(color: Colors.grey[600]!),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: HelodermaColors.bgPink,
+                            borderRadius: BorderRadius.circular(1000),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(12),
+                            child: Icon(
+                              Icons.medication_liquid_sharp,
+                              color: HelodermaColors.darkPink,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 12),
+                        Column(
+                          children: [
+                            Text('Amlodipine', style: Styles.H2),
+                            Text(
+                              '5 mg - 1 Tablet',
+                              style: TextStyle(color: Colors.grey[600]!),
+                            ),
+                          ],
                         ),
                       ],
                     ),
+                    SizedBox(height: 12),
+                    FilledButton(
+                      child: Text('Mark as taken'),
+                      onPressed: () {},
+                      style: Styles.blueButtonStyle,
+                    ),
                   ],
                 ),
-                SizedBox(height: 12),
-                FilledButton(
-                  child: Text('Mark as taken'),
-                  onPressed: () {},
-                  style: Styles.blueButtonStyle,
-                ),
-              ],
+              ),
             ),
-          ),
+            SizedBox(height: 24),
+            Text(
+              'Today - ${1} of ${4}',
+              style: Styles.H2,
+              textAlign: TextAlign.start,
+            ),
+            SizedBox(height: 8),
+            for (int i = 0; i < reminders.length; i++)
+              _reminderWidget(reminders[i]),
+            SizedBox(height: 12),
+            Text('Appointments', style: Styles.H2, textAlign: TextAlign.start),
+            for (int i = 0; i < appointments.length; i++)
+              _appointmentWidget(appointments[i]),
+          ],
         ),
-        SizedBox(height: 24),
-        Text(
-          'Today - ${1} of ${4}',
-          style: Styles.H2,
-          textAlign: TextAlign.start,
-        ),
-        SizedBox(height: 8),
-        for (int i = 0; i < reminders.length; i++)
-          _reminderWidget(reminders[i]),
-        SizedBox(height: 12),
-        Text('Appointments', style: Styles.H2, textAlign: TextAlign.start),
-        for (int i = 0; i < appointments.length; i++)
-          _appointmentWidget(appointments[i]),
-      ],
-    )));
+      ),
+    );
   }
 }
