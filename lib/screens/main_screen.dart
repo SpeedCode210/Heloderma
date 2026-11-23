@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:heloderma/colors.dart' as HelodermaColors;
 import 'package:heloderma/screens/homepage.dart';
 import 'package:heloderma/screens/folderspage.dart';
+import 'package:heloderma/screens/profile.dart';
 import 'package:heloderma/screens/treatments.dart';
 
 class MainScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _mainScreenState extends State<MainScreen> {
     const FoldersPage(),
     const TreatmentsPage(),
     Text('Calendar'),
-    Text('Profile'),
+    const ProfilePage(),
   ];
 
   @override
