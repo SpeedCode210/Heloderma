@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heloderma/colors.dart' as HelodermaColors;
-import 'package:heloderma/styles.dart' as Style;
+import 'package:heloderma/styles.dart' as Styles;
 
 class TreatmentsPage extends StatefulWidget {
   const TreatmentsPage({super.key});
@@ -30,7 +30,7 @@ class _TreatmentsPageState extends State<TreatmentsPage> {
     ),
   ];
 
-  List<TreatmentInfo> _diabetes = [
+  final List<TreatmentInfo> _diabetes = [
     TreatmentInfo(
       name: 'Metformin',
       details: '850 mg · twice a day · 8 AM, 8 PM',
@@ -105,7 +105,7 @@ class _TreatmentsPageState extends State<TreatmentsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(t.name, style: Style.H2),
+                Text(t.name, style: Styles.H2),
                 Text(t.details, style: TextStyle(color: Colors.grey)),
                 SizedBox(height: 10),
                 Row(
@@ -134,7 +134,7 @@ class _TreatmentsPageState extends State<TreatmentsPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('Treatments', style: Style.H1),
+          Text('Treatments', style: Styles.H1),
           Text('Reminders by condition'),
           SizedBox(height: 16),
           Expanded(
@@ -160,7 +160,7 @@ class _TreatmentsPageState extends State<TreatmentsPage> {
           FilledButton(
             child: Text('+ Add Treatment'),
             onPressed: () {},
-            style: Style.blueButtonStyle,
+            style: Styles.blueButtonStyle,
           ),
         ],
       ),

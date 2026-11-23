@@ -19,3 +19,22 @@ const ButtonStyle blueButtonStyle = ButtonStyle(
     RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16))),
   ),
 );
+
+const ButtonStyle whiteButtonStyle = ButtonStyle(
+  backgroundColor: WidgetStatePropertyAll<Color>(Colors.white),
+  padding: WidgetStatePropertyAll<EdgeInsetsGeometry>(
+    EdgeInsets.symmetric(vertical: 18),
+  ),
+  shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+    RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16))),
+  ),
+);
+
+const ButtonStyle transparentButtonStyle = ButtonStyle(
+  padding: WidgetStatePropertyAll<EdgeInsetsGeometry>(
+    EdgeInsets.symmetric(vertical: 18),
+  ),
+  shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+    RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16))),
+  ),
+);

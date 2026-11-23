@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:heloderma/styles.dart' as Styles;
 import 'package:heloderma/colors.dart' as HelodermaColors;
 import 'package:dotted_border/dotted_border.dart';
+import 'package:heloderma/screens/folder_screen.dart';
 
 class FoldersPage extends StatefulWidget {
   const FoldersPage({super.key});
@@ -49,7 +50,7 @@ class _FoldersPageState extends State<FoldersPage> {
     ),
   ];
 
-  Widget _folderWidget(FolderInfo info) {
+  Widget _folderWidget(FolderInfo info, BuildContext context) {
     return Column(
       children: [
         Row(
@@ -70,104 +71,111 @@ class _FoldersPageState extends State<FoldersPage> {
             ),
           ],
         ),
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(12),
-              bottomRight: Radius.circular(12),
-              topRight: Radius.circular(12),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => FolderScreen()),
+            );
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(12),
+                bottomRight: Radius.circular(12),
+                topRight: Radius.circular(12),
+              ),
+              border: Border.all(width: 1, color: Colors.grey[300]!),
             ),
-            border: Border.all(width: 1, color: Colors.grey[300]!),
-          ),
-          child: Padding(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: HelodermaColors.bgPink,
-                        borderRadius: BorderRadius.circular(1000),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(12),
-                        child: Icon(
-                          Icons.medication_liquid_sharp,
-                          color: HelodermaColors.darkPink,
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: HelodermaColors.bgPink,
+                          borderRadius: BorderRadius.circular(1000),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Icon(
+                            Icons.medication_liquid_sharp,
+                            color: HelodermaColors.darkPink,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 12),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(info.name, style: Styles.H2),
-                        Text(
-                          'Followed since ${DateFormat("yyyy").format(info.startTime)}',
-                          style: TextStyle(color: Colors.grey[600]!),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 16),
-                DottedBorder(
-                  options: CustomPathDottedBorderOptions(
-                    customPath: (size) {
-                      return Path()
-                        ..moveTo(0, 0)
-                        ..lineTo(size.width, 0);
-                    },
-                    color: Colors.grey[300]!,
-                    strokeWidth: 1,
-                    dashPattern: const [6, 3],
+                      SizedBox(width: 12),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(info.name, style: Styles.H2),
+                          Text(
+                            'Followed since ${DateFormat("yyyy").format(info.startTime)}',
+                            style: TextStyle(color: Colors.grey[600]!),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  child: Container(
-                    padding: const EdgeInsets.only(top: 16),
-                    // Add any other decoration properties here (e.g., color, borderRadius)
-                    child: Row(
-                      spacing: 16,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '12',
-                              style: Styles.H2,
-                              textAlign: TextAlign.start,
-                            ),
-                            Text('visits'),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '12',
-                              style: Styles.H2,
-                              textAlign: TextAlign.start,
-                            ),
-                            Text('documents'),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '12',
-                              style: Styles.H2,
-                              textAlign: TextAlign.start,
-                            ),
-                            Text('treatments'),
-                          ],
-                        ),
-                      ],
+                  SizedBox(height: 16),
+                  DottedBorder(
+                    options: CustomPathDottedBorderOptions(
+                      customPath: (size) {
+                        return Path()
+                          ..moveTo(0, 0)
+                          ..lineTo(size.width, 0);
+                      },
+                      color: Colors.grey[300]!,
+                      strokeWidth: 1,
+                      dashPattern: const [6, 3],
+                    ),
+                    child: Container(
+                      padding: const EdgeInsets.only(top: 16),
+                      child: Row(
+                        spacing: 16,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '12',
+                                style: Styles.H2,
+                                textAlign: TextAlign.start,
+                              ),
+                              Text('visits'),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '12',
+                                style: Styles.H2,
+                                textAlign: TextAlign.start,
+                              ),
+                              Text('documents'),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '12',
+                                style: Styles.H2,
+                                textAlign: TextAlign.start,
+                              ),
+                              Text('treatments'),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -270,7 +278,7 @@ class _FoldersPageState extends State<FoldersPage> {
             Text('Folders', style: Styles.H1, textAlign: TextAlign.start),
             Text('One folder per condition', textAlign: TextAlign.start),
             SizedBox(height: 24),
-            for (var folder in _folders) _folderWidget(folder),
+            for (var folder in _folders) _folderWidget(folder, context),
 
             _newFolderButton(onTap: () {}),
           ],
