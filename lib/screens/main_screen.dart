@@ -4,6 +4,7 @@ import 'package:heloderma/screens/homepage.dart';
 import 'package:heloderma/screens/folderspage.dart';
 import 'package:heloderma/screens/profile.dart';
 import 'package:heloderma/screens/treatments.dart';
+import 'calandar.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -19,7 +20,7 @@ class _mainScreenState extends State<MainScreen> {
     const HomePage(),
     const FoldersPage(),
     const TreatmentsPage(),
-    Text('Calendar'),
+    const CalendarPage(),
     const ProfilePage(),
   ];
 
