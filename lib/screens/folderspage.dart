@@ -5,6 +5,8 @@ import 'package:heloderma/colors.dart' as HelodermaColors;
 import 'package:dotted_border/dotted_border.dart';
 import 'package:heloderma/screens/folder_screen.dart';
 
+import '../icons.dart';
+
 class FoldersPage extends StatefulWidget {
   const FoldersPage({super.key});
 
@@ -38,7 +40,7 @@ class _FoldersPageState extends State<FoldersPage> {
       visits: 4,
       documents: 9,
       treatments: 1,
-      iconName: 'heart',
+      iconName: 'assets/conditions/heart.svg',
     ),
     FolderInfo(
       name: 'Type 2 diabetes',
@@ -46,7 +48,7 @@ class _FoldersPageState extends State<FoldersPage> {
       visits: 6,
       documents: 14,
       treatments: 2,
-      iconName: 'droplet',
+      iconName: 'assets/conditions/drop-blue.svg',
     ),
   ];
 
@@ -94,17 +96,17 @@ class _FoldersPageState extends State<FoldersPage> {
                 children: [
                   Row(
                     children: [
+                      // APRÈS
                       Container(
                         decoration: BoxDecoration(
-                          color: HelodermaColors.bgPink,
+                          color: info.iconName.contains('blue')
+                              ? HelodermaColors.bgBlue
+                              : HelodermaColors.bgPink,
                           borderRadius: BorderRadius.circular(1000),
                         ),
                         child: Padding(
                           padding: EdgeInsets.all(12),
-                          child: Icon(
-                            Icons.medication_liquid_sharp,
-                            color: HelodermaColors.darkPink,
-                          ),
+                          child: svgIcon(info.iconName),
                         ),
                       ),
                       SizedBox(width: 12),
@@ -248,7 +250,7 @@ class _FoldersPageState extends State<FoldersPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.add, color: Colors.grey[600], size: 22),
+                  svgIcon('assets/ui/plus-gray.svg', size: 12),
                   const SizedBox(width: 8),
                   Text(
                     'New folder',

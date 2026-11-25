@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:heloderma/styles.dart' as Styles;
 import 'package:heloderma/colors.dart' as HelodermaColors;
+import '../icons.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -116,7 +117,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget _optionTile({
-    required IconData icon,
+    required String icon,
     required String title,
     required String subtitle,
     required VoidCallback onTap,
@@ -142,7 +143,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: HelodermaColors.bgPink,
                   shape: BoxShape.circle,
                 ),
-                child: Icon(icon, color: HelodermaColors.darkPink),
+                child: svgIcon(icon),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -164,7 +165,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
-              Icon(Icons.chevron_right, color: Colors.grey[700]),
+              svgIcon('assets/ui/chevron-right.svg', size: 12),
             ],
           ),
         ),
@@ -194,7 +195,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               const SizedBox(height: 12),
               _optionTile(
-                icon: Icons.description_outlined,
+                icon: 'assets/sharing/document.svg',
                 title: 'Summary',
                 subtitle: 'PDF to share with your doctor',
                 onTap: () {},

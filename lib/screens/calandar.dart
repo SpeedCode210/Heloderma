@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:heloderma/colors.dart' as HelodermaColors;
 import 'package:heloderma/styles.dart' as Styles;
 
+import '../icons.dart';
+
 class Appointment {
   DateTime date;
   String time;
   String doctor;
   String place;
-  Appointment({required this.date, required this.time, required this.doctor,required this.place,});
+  Appointment({
+    required this.date,
+    required this.time,
+    required this.doctor,
+    required this.place,
+  });
 }
 
 class CalendarPage extends StatefulWidget {
@@ -19,19 +26,39 @@ class CalendarPage extends StatefulWidget {
 
 class _CalendarPageState extends State<CalendarPage> {
   final List<String> _months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
 
   DateTime _month = DateTime(DateTime.now().year, DateTime.now().month);
   DateTime _selected = DateTime.now();
   final List<Appointment> _appointments = [
-    Appointment(date: DateTime(2026, 11, 24), time: '9:00 AM', doctor: 'Dr Meziane · Endocrinology', place: 'Private practice, Sétif'),
-    Appointment(date: DateTime(2026, 12, 12), time: '10:30 AM', doctor: 'Dr Benali · Cardiology', place: 'El Azhar Clinic, Algiers'),
+    Appointment(
+      date: DateTime(2026, 11, 24),
+      time: '9:00 AM',
+      doctor: 'Dr Meziane · Endocrinology',
+      place: 'Private practice, Sétif',
+    ),
+    Appointment(
+      date: DateTime(2026, 12, 12),
+      time: '10:30 AM',
+      doctor: 'Dr Benali · Cardiology',
+      place: 'El Azhar Clinic, Algiers',
+    ),
   ];
 
   int get _daysInMonth => DateTime(_month.year, _month.month + 1, 0).day;
-  int get _emptyCells => DateTime(_month.year, _month.month, 1).weekday%7;
+  int get _emptyCells => DateTime(_month.year, _month.month, 1).weekday % 7;
 
   List<Appointment> get _upcoming {
     final today = DateUtils.dateOnly(DateTime.now());
@@ -78,7 +105,9 @@ class _CalendarPageState extends State<CalendarPage> {
         decoration: BoxDecoration(
           color: bg,
           shape: BoxShape.circle,
-          border: DateUtils.isSameDay(date, _selected) ? Border.all(color: HelodermaColors.darkBlue, width: 2) : null,
+          border: DateUtils.isSameDay(date, _selected)
+              ? Border.all(color: HelodermaColors.darkBlue, width: 2)
+              : null,
         ),
         child: Text(
           '$day',
@@ -185,11 +214,11 @@ class _CalendarPageState extends State<CalendarPage> {
                 ),
                 Spacer(),
                 IconButton(
-                  icon: Icon(Icons.chevron_left),
+                  icon: svgIcon('assets/ui/chevron-left.svg', size: 16),
                   onPressed: () => _changeMonth(-1),
                 ),
                 IconButton(
-                  icon: Icon(Icons.chevron_right),
+                  icon: svgIcon('assets/ui/chevron-right.svg', size: 12),
                   onPressed: () => _changeMonth(1),
                 ),
               ],
@@ -209,7 +238,7 @@ class _CalendarPageState extends State<CalendarPage> {
               width: double.infinity,
               child: FilledButton.icon(
                 onPressed: _addAppointment,
-                icon: Icon(Icons.add),
+                icon: svgIcon('assets/ui/plus-white.svg', size: 11),
                 label: Text('Add appointment'),
                 style: Styles.blueButtonStyle,
               ),

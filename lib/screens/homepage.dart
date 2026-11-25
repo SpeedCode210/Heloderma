@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:heloderma/styles.dart' as Styles;
 import 'package:heloderma/colors.dart' as HelodermaColors;
 
+import '../icons.dart';
+
 class MedicationReminder {
   DateTime time;
   String name;
@@ -213,10 +215,7 @@ class _homePageState extends State<HomePage> {
                           ),
                           child: Padding(
                             padding: EdgeInsets.all(12),
-                            child: Icon(
-                              Icons.medication_liquid_sharp,
-                              color: HelodermaColors.darkPink,
-                            ),
+                            child: svgIcon('assets/treatments/pill-red.svg'),
                           ),
                         ),
                         SizedBox(width: 12),

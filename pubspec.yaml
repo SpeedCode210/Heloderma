@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   intl: ^0.20.3
   dotted_border: ^3.1.0
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +61,11 @@ flutter:
   uses-material-design: true
   assets:
     - assets/heloderma.png
+    - assets/navigation/
+    - assets/ui/
+    - assets/treatments/
+    - assets/sharing/
+    - assets/conditions/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

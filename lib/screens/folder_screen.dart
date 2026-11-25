@@ -3,6 +3,8 @@ import 'package:heloderma/styles.dart' as Styles;
 import 'package:heloderma/colors.dart' as HelodermaColors;
 import 'package:intl/intl.dart';
 
+import '../icons.dart';
+
 class FolderScreen extends StatefulWidget {
   const FolderScreen({super.key});
 
@@ -152,7 +154,11 @@ class _FolderScreenState extends State<FolderScreen> {
             decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
             child: Padding(
               padding: EdgeInsets.all(16),
-              child: Icon(Icons.medication, color: iconColor),
+              child: svgIcon(
+                iconColor == HelodermaColors.blue
+                    ? 'assets/treatments/pill-blue.svg'
+                    : 'assets/treatments/pill-red.svg',
+              ),
             ),
           ),
           SizedBox(width: 16),
@@ -197,10 +203,7 @@ class _FolderScreenState extends State<FolderScreen> {
             ),
             child: Padding(
               padding: EdgeInsets.all(16),
-              child: Icon(
-                Icons.insert_drive_file_outlined,
-                color: HelodermaColors.darkPink,
-              ),
+              child: svgIcon('assets/sharing/document.svg'),
             ),
           ),
           SizedBox(width: 16),
@@ -250,7 +253,7 @@ class _FolderScreenState extends State<FolderScreen> {
                   '${info.doctorName} - ${info.specialty}',
                   style: TextStyle(color: HelodermaColors.darkBlue),
                 ),
-                Text(info.comment)
+                Text(info.comment),
               ],
             ),
           ),
@@ -302,7 +305,7 @@ class _FolderScreenState extends State<FolderScreen> {
             Row(
               children: [
                 IconButton(
-                  icon: Icon(Icons.chevron_left, size: 32),
+                  icon: svgIcon('assets/ui/chevron-left.svg', size: 16),
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -315,10 +318,7 @@ class _FolderScreenState extends State<FolderScreen> {
                   ),
                   child: Padding(
                     padding: EdgeInsets.all(12),
-                    child: Icon(
-                      Icons.medication_liquid_sharp,
-                      color: HelodermaColors.darkPink,
-                    ),
+                    child: svgIcon('assets/treatments/pill-red.svg'),
                   ),
                 ),
                 SizedBox(width: 16),
@@ -379,7 +379,7 @@ class _FolderScreenState extends State<FolderScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.add, color: Colors.white),
+                  svgIcon('assets/ui/plus-white.svg', size: 11),
                   Text(
                     ' Add ${_labels[_selectedTab]}',
                     style: TextStyle(color: Colors.white),

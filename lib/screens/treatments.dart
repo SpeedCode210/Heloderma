@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:heloderma/colors.dart' as HelodermaColors;
 import 'package:heloderma/styles.dart' as Styles;
 
+import '../icons.dart';
+
 class TreatmentsPage extends StatefulWidget {
   const TreatmentsPage({super.key});
 
@@ -97,7 +99,9 @@ class _TreatmentsPageState extends State<TreatmentsPage> {
             decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
             child: Padding(
               padding: EdgeInsets.all(16),
-              child: Icon(Icons.medication, color: iconColor),
+              child: svgIcon(
+                iconColor == HelodermaColors.blue ? 'assets/treatments/pill-blue.svg' : 'assets/treatments/pill-red.svg',
+              ),
             ),
           ),
           SizedBox(width: 16),
@@ -144,12 +148,20 @@ class _TreatmentsPageState extends State<TreatmentsPage> {
                 children: [
                   _sectionTitle('Hypertension', HelodermaColors.darkPink),
                   for (var t in _hypertension)
-                    _treatmentWidget(t,HelodermaColors.bgPink,HelodermaColors.darkPink,),
+                    _treatmentWidget(
+                      t,
+                      HelodermaColors.bgPink,
+                      HelodermaColors.darkPink,
+                    ),
                   SizedBox(height: 16),
                   _sectionTitle('Type 2 diabetes', HelodermaColors.blue),
                   for (var t in _diabetes) ...[
                     Divider(color: Colors.grey[300]),
-                    _treatmentWidget(t, HelodermaColors.bgBlue, HelodermaColors.blue),
+                    _treatmentWidget(
+                      t,
+                      HelodermaColors.bgBlue,
+                      HelodermaColors.blue,
+                    ),
                   ],
                 ],
               ),

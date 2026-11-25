@@ -4,6 +4,9 @@ import 'package:heloderma/screens/homepage.dart';
 import 'package:heloderma/screens/folderspage.dart';
 import 'package:heloderma/screens/profile.dart';
 import 'package:heloderma/screens/treatments.dart';
+
+import '../icons.dart';
+
 import 'calandar.dart';
 
 class MainScreen extends StatefulWidget {
@@ -44,25 +47,30 @@ class _mainScreenState extends State<MainScreen> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
+            icon: svgIcon('assets/navigation/nav-home.svg'),
+            activeIcon: svgIcon('assets/navigation/nav-home-active.svg'),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.folder_open),
+            icon: svgIcon('assets/navigation/nav-folders.svg'),
+            activeIcon: svgIcon('assets/navigation/nav-folders-active.svg'),
             label: 'Folders',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.medication_liquid_sharp),
+            icon: svgIcon('assets/navigation/nav-treatments.svg'),
+            activeIcon: svgIcon('assets/navigation/nav-treatments-active.svg'),
             label: 'Treatments',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today_outlined),
+            icon: svgIcon('assets/navigation/nav-calendar.svg'),
+            activeIcon: svgIcon('assets/navigation/nav-calendar-active.svg'),
             label: 'Calendar',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
+            icon: svgIcon('assets/navigation/nav-profile.svg'),
+            activeIcon: svgIcon('assets/navigation/nav-profile-active.svg'),
             label: 'Profile',
           ),
         ],
