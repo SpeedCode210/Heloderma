@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:heloderma/colors.dart' as HelodermaColors;
 import 'package:heloderma/styles.dart' as Styles;
 
+import 'addTreatment.dart';
+
 import '../icons.dart';
 
 class TreatmentsPage extends StatefulWidget {
@@ -100,7 +102,9 @@ class _TreatmentsPageState extends State<TreatmentsPage> {
             child: Padding(
               padding: EdgeInsets.all(16),
               child: svgIcon(
-                iconColor == HelodermaColors.blue ? 'assets/treatments/pill-blue.svg' : 'assets/treatments/pill-red.svg',
+                iconColor == HelodermaColors.blue
+                    ? 'assets/treatments/pill-blue.svg'
+                    : 'assets/treatments/pill-red.svg',
               ),
             ),
           ),
@@ -171,7 +175,9 @@ class _TreatmentsPageState extends State<TreatmentsPage> {
           SizedBox(height: 16),
           FilledButton(
             child: Text('+ Add Treatment'),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (_) => const AddTreatmentScreen()));
+            },
             style: Styles.blueButtonStyle,
           ),
         ],

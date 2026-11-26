@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:heloderma/colors.dart' as HelodermaColors;
 import 'package:heloderma/styles.dart' as Styles;
+import 'addAppointment.dart';
 
 import '../icons.dart';
 
@@ -83,7 +84,7 @@ class _CalendarPageState extends State<CalendarPage> {
   }
 
   void _addAppointment() {
-    setState(() {});
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const AddAppointmentScreen()));
   }
 
   Widget _dayCell(int day) {
