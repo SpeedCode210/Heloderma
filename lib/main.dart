@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Heloderma',
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: HelodermaColors.darkPink),
+        colorScheme: .fromSeed(seedColor: HelodermaColors.darkBlue),
       ),
       home: const MainScreen(),
     );

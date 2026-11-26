@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:heloderma/screens/newfolder.dart';
 import 'package:intl/intl.dart';
 import 'package:heloderma/styles.dart' as Styles;
 import 'package:heloderma/colors.dart' as HelodermaColors;
@@ -282,7 +283,9 @@ class _FoldersPageState extends State<FoldersPage> {
             SizedBox(height: 24),
             for (var folder in _folders) _folderWidget(folder, context),
 
-            _newFolderButton(onTap: () {}),
+            _newFolderButton(onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (_) => NewFolderScreen()));
+            }),
           ],
         ),
       ),

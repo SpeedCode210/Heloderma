@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:heloderma/screens/adddocument.dart';
+import 'package:heloderma/screens/addvisit.dart';
 import 'package:heloderma/styles.dart' as Styles;
 import 'package:heloderma/colors.dart' as HelodermaColors;
 import 'package:intl/intl.dart';
@@ -375,7 +377,14 @@ class _FolderScreenState extends State<FolderScreen> {
             Expanded(child: _getMainView()),
             ElevatedButton(
               style: Styles.blueButtonStyle,
-              onPressed: () {},
+              onPressed: () {
+                if(_selectedTab == 0){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => AddVisitScreen()));
+                }
+                if(_selectedTab == 1){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => AddDocumentScreen()));
+                }
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
