@@ -99,8 +99,8 @@ class _CalendarPageState extends State<CalendarPage> {
     return GestureDetector(
       onTap: () => _selectDay(date),
       child: Container(
-        width: 44,
-        height: 44,
+        width: 36,
+        height: 36,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: bg,

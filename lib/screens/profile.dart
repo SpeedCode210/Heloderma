@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:heloderma/styles.dart' as Styles;
 import 'package:heloderma/colors.dart' as HelodermaColors;
+
 import '../icons.dart';
+
+import 'package:heloderma/screens/summary_screen.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -198,7 +201,11 @@ class _ProfilePageState extends State<ProfilePage> {
                 icon: 'assets/sharing/document.svg',
                 title: 'Summary',
                 subtitle: 'PDF to share with your doctor',
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const SummaryScreen()),
+                  );
+                },
               ),
             ],
           ),
